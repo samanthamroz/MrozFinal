@@ -5,15 +5,6 @@ from ..dependencies.database import Base
 
 
 class Order(Base):
-    """
-    key : type
-    date : DATETIME
-    tracking number : int
-    order status : bool
-    total price : float
-    customer : Customer
-    order details : Order
-    """
     __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)

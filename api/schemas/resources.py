@@ -1,11 +1,10 @@
-from datetime import datetime
-from typing import Optional
 from pydantic import BaseModel
+from typing import Optional
 
 
 class ResourceBase(BaseModel):
-    item: str
-    amount: int
+    resource_name: str
+    amount_in_inventory: int
 
 
 class ResourceCreate(ResourceBase):
@@ -13,8 +12,8 @@ class ResourceCreate(ResourceBase):
 
 
 class ResourceUpdate(BaseModel):
-    item: Optional[str] = None
-    amount: Optional[int] = None
+    resource_name: Optional[str] = None
+    amount_in_inventory: Optional[int] = None
 
 
 class Resource(ResourceBase):

@@ -5,14 +5,6 @@ from api.dependencies.database import Base
 
 
 class Payment(Base):
-    """
-    card number: int
-    exp month : int
-    exp year : int
-    security code : int
-    name : String
-    promo_code : Code
-    """
     __tablename__ = "payments"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)

@@ -5,10 +5,6 @@ from api.dependencies.database import Base
 
 
 class Review(Base):
-    """
-    rating : int
-    review : string
-    """
     __tablename__ = "reviews"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
