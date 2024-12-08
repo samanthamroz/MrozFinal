@@ -14,5 +14,5 @@ class Review(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     item_name = Column(Integer, ForeignKey("menu_items.item_name"))
     rating = Column(Integer, nullable=False)
-    review = Column(String, nullable=False)
+    review = Column(String(100), nullable=False)
     customer = relationship("Customer", back_populates="reviews")

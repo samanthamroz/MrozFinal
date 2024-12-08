@@ -5,18 +5,11 @@ from api.dependencies.database import Base
 
 
 class Customer(Base):
-    """
-    name : String
-    email : String
-    phone : int
-    address : String
-    payment : Payment
-    """
     __tablename__ = "customers"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
-    phone = Column(Integer, nullable=False)
-    address = Column(String, nullable=False)
+    name = Column(String(100), nullable=False)
+    email = Column(String(100), nullable=False)
+    phone = Column(String(13), nullable=False)
+    address = Column(String(100), nullable=False)
     payment = relationship("Payment", back_populates="customer")

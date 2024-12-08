@@ -20,6 +20,6 @@ class Payment(Base):
     exp_month = Column(Integer, nullable=False)
     exp_year = Column(Integer, nullable=False)
     security_code = Column(Integer, nullable=False)
-    name_on_card = Column(String, nullable=False)
+    name_on_card = Column(String(100), nullable=False)
 
     promo_code = relationship("PromoCode", back_populates="payments")

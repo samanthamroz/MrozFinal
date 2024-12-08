@@ -8,5 +8,5 @@ class Resource(Base):
     __tablename__ = "resources"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    resource_name = Column(String, unique=True, nullable=False)
+    resource_name = Column(String(100), unique=True, nullable=False)
     amount_in_inventory = Column(Integer, index=True, nullable=False, server_default='0.0')
