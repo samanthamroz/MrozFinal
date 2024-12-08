@@ -5,4 +5,4 @@ class conf:
     db_user = "root"
     db_password = "Acr0ss0728!"
     app_host = "localhost"
-    app_port = 8000
+    app_port = 8080

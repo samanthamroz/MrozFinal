@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from .recipes import Recipe
+from api.schemas.recipes import Recipe
 
 class MenuItemBase(BaseModel):
     item_name: Optional[str] = None

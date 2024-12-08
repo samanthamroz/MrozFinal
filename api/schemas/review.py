@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from .customers import Customer
+from api.schemas.customers import Customer
 
 class ReviewBase(BaseModel):
     item_name: Optional[str] = None

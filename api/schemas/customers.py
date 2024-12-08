@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from .payment import Payment
+from api.schemas.payment import Payment
 
 class CustomerBase(BaseModel):
     name: str

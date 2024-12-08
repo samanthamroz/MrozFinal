@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from .promo_code import PromoCode
+from api.schemas.promo_code import PromoCode
 
 class PaymentBase(BaseModel):
     card_number: int

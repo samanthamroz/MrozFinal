@@ -1,8 +1,8 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from .customers import Customer
-from .order_details import OrderDetail
+from api.schemas.customers import Customer
+from api.schemas.order_details import OrderDetail
 
 
 class OrderBase(BaseModel):

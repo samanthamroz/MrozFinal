@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional
-from .resources import Resource
+from api.schemas.resources import Resource
 
 
 class RecipeBase(BaseModel):
