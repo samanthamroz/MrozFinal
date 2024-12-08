@@ -11,10 +11,15 @@ class Payment(Base):
     exp year : int
     security code : int
     name : String
+    promo_code : Code
     """
-    __tablename__ = "customers"
+    __tablename__ = "payments"
 
-    name = Column(String, nullable=False)
-    email = Column(String, nullable=False)
-    phone = Column(Integer, nullable=False)
-    address = Column(String, nullable=False)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    card_number = Column(Integer, nullable=False)
+    exp_month = Column(Integer, nullable=False)
+    exp_year = Column(Integer, nullable=False)
+    security_code = Column(Integer, nullable=False)
+    name_on_card = Column(String, nullable=False)
+
+    promo_code = relationship("PromoCode", back_populates="payments")

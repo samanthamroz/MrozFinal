@@ -9,7 +9,10 @@ class Review(Base):
     rating : int
     review : string
     """
-    __tablename__ = "customers"
+    __tablename__ = "reviews"
 
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    item_name = Column(Integer, ForeignKey("menu_items.item_name"))
     rating = Column(Integer, nullable=False)
     review = Column(String, nullable=False)
+    customer = relationship("Customer", back_populates="reviews")
