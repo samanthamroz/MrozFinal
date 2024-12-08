@@ -1,15 +1,25 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
 
 
 class Order(Base):
+    """
+    key : type
+    date : DATETIME
+    tracking number : int
+    order status : bool
+    total price : float
+    customer : Customer
+    order details : Order
+    """
     __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    customer_name = Column(String(100))
-    order_date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
-    description = Column(String(300))
+    date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
+    status = Column(Boolean, default=False)
+    price = Column(DECIMAL, nullable=False)
 
-    order_details = relationship("OrderDetail", back_populates="order")
+    customer = relationship("Customer", back_populates="orders")
+    order_details = relationship("OrderDetail", back_populates="orders")
