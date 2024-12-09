@@ -12,5 +12,7 @@ class Order(Base):
     status = Column(Boolean, default=False)
     price = Column(DECIMAL, nullable=False)
 
+    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
     customer = relationship("Customer", back_populates="orders")
+
     order_details = relationship("OrderDetail", back_populates="orders")
