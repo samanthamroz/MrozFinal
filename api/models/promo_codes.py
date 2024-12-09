@@ -11,3 +11,6 @@ class PromoCode(Base):
     code = Column(String(10), primary_key=True, nullable=False)
     percent_off = Column(DECIMAL, nullable=False)
     expiry_date = Column(DATETIME, nullable=False)
+
+    payment_id = Column(Integer, ForeignKey("payments.id"), nullable=False)
+    payment = relationship("Payment", back_populates="promo_codes")

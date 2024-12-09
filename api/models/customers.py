@@ -12,4 +12,9 @@ class Customer(Base):
     email = Column(String(100), nullable=False)
     phone = Column(String(13), nullable=False)
     address = Column(String(100), nullable=False)
+
     payment = relationship("Payment", back_populates="customer")
+
+    reviews = relationship("Review", back_populates="customer")
+
+    orders = relationship("Order", back_populates="customer")

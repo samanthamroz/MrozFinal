@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from ..dependencies.database import Base
+from api.dependencies.database import Base
 
 
 class Order(Base):
@@ -15,4 +15,4 @@ class Order(Base):
     customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
     customer = relationship("Customer", back_populates="orders")
 
-    order_details = relationship("OrderDetail", back_populates="orders")
+    order_details = relationship("OrderDetail", back_populates="order")

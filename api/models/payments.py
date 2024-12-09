@@ -14,4 +14,7 @@ class Payment(Base):
     security_code = Column(Integer, nullable=False)
     name_on_card = Column(String(100), nullable=False)
 
-    promo_code = relationship("PromoCode", back_populates="payments")
+    promo_codes = relationship("PromoCode", back_populates="payment")
+
+    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
+    customer = relationship("Customer", back_populates="payment")

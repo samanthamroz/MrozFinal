@@ -1,8 +1,20 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 from api.schemas.customers import Customer
 from api.schemas.order_details import OrderDetail
+
+
+class CustomerCreate(BaseModel):
+    name: str
+    email: str
+    phone: str
+    address: str
+
+
+class OrderDetailCreate(BaseModel):
+    menu_item_name: str  # Use the name of the menu item to calculate price
+    amount: int  # Quantity of the menu item
 
 
 class OrderBase(BaseModel):
@@ -11,8 +23,11 @@ class OrderBase(BaseModel):
     price: float
 
 
-class OrderCreate(OrderBase):
-    pass
+class OrderCreate(BaseModel):
+    date: Optional[datetime] = None
+    status: bool
+    customer: CustomerCreate
+    order_details: List[OrderDetailCreate]
 
 
 class OrderUpdate(BaseModel):
@@ -24,7 +39,7 @@ class OrderUpdate(BaseModel):
 class Order(OrderBase):
     id: int
     customer: Customer = None  # Relationship with Customer
-    order_details: OrderDetail = None  # Relationship with OrderDetail
+    order_details: List[OrderDetail] = []  # Relationship with OrderDetail
 
     class Config:
         from_attributes = True
