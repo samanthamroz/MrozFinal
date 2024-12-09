@@ -4,11 +4,30 @@ from fastapi import HTTPException, status
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError
 from api.models import menu_items as model
-from api.schemas.orders import OrderCreate
+from api.schemas.menu_items import MenuItemCreate
 
 
-def create(db: Session, request: OrderCreate):
+def create(db: Session, request: MenuItemCreate):
+    try:
+        # Create a new MenuItem instance
+        new_menu_item = model.MenuItem(
+            item_name=request.item_name,
+            price=request.price,
+            category=request.category
+        )
 
+        # Add the new MenuItem to the database session
+        db.add(new_menu_item)
+        db.commit()  # Commit the transaction
+        db.refresh(new_menu_item)  # Refresh to get the full object
+
+        return new_menu_item
+    except Exception as e:
+        db.rollback()  # Roll back in case of error
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)  # Provide an error message
+        )
 
 def read_all(db: Session):
     try:
