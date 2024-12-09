@@ -8,7 +8,7 @@ class Order(Base):
     __tablename__ = "orders"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    date = Column(DATETIME, nullable=False, server_default=str(datetime.now()))
+    date = Column(DATETIME, nullable=False)
     status = Column(Boolean, default=False)
     price = Column(DECIMAL, nullable=False)
 

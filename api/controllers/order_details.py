@@ -1,26 +1,44 @@
+from httpx import Response
 from sqlalchemy.orm import Session
-from fastapi import HTTPException, status, Response
-from ..models import order_details as model
+from fastapi import HTTPException, status
+from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError
+from api.models import order_details as model, customers as customer_model, orders as order_model, \
+    menu_items as menu_item_model
+from api.schemas.orders import OrderCreate
 
 
-def create(db: Session, request):
-    new_item = model.OrderDetail(
-        order_id=request.order_id,
-        sandwich_id=request.sandwich_id,
-        amount=request.amount
-    )
+def create(db: Session, request: OrderCreate):
+    db_order = db.query(order_model.Order).filter(order_model.Order.id == request.order_id).first()
+    if not db_order:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Order with ID {request.order_id} not found"
+        )
+
+    db_menu_item = db.query(menu_item_model.MenuItem).filter(menu_item_model.MenuItem.id == request.menu_item_id).first()
+    if not db_menu_item:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Menu item with ID {request.menu_item_id} not found"
+        )
 
     try:
-        db.add(new_item)
+        new_detail = model.OrderDetail(
+            order_id=request.order_id,
+            menu_item_id=request.menu_item_id,
+            amount=request.amount
+        )
+        db.add(new_detail)
         db.commit()
-        db.refresh(new_item)
+        db.refresh(new_detail)
+        return new_detail
     except SQLAlchemyError as e:
-        error = str(e.__dict__['orig'])
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
-
-    return new_item
-
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Error creating order detail: {str(e)}"
+        )
 
 def read_all(db: Session):
     try:
