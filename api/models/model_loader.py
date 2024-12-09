@@ -1,8 +1,4 @@
-from api.models import orders
-from api.models.MenuItems import (
-    menu_items, recipes, resources, order_details, reviews)
-from api.models.Customers import (
-    customers, payments, promo_codes)
+from api.models import orders, order_details, recipes, reviews, menu_items, resources, payments, customers, promo_codes
 
 from api.dependencies.database import engine
 
