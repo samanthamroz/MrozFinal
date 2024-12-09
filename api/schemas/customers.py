@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from typing import Optional
-from api.schemas.payment import Payment
 
 class CustomerBase(BaseModel):
     name: str
@@ -22,7 +21,6 @@ class CustomerUpdate(BaseModel):
 
 class Customer(CustomerBase):
     id: int
-    payment: Optional[Payment] = None  # List of Payments
 
     class ConfigDict:
         from_attributes = True

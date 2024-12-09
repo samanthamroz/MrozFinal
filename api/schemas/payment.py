@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
+
+from api.schemas.customers import Customer
 from api.schemas.promo_code import PromoCode
 
 class PaymentBase(BaseModel):
@@ -9,6 +11,7 @@ class PaymentBase(BaseModel):
     exp_year: int
     security_code: int
     name_on_card: str
+    paying_customer: Customer = None
 
 
 class PaymentCreate(PaymentBase):
@@ -21,6 +24,7 @@ class PaymentUpdate(BaseModel):
     exp_year: Optional[int] = None
     security_code: Optional[int] = None
     name_on_card: Optional[str] = None
+    paying_customer: Optional[Customer] = None
 
 
 class Payment(PaymentBase):

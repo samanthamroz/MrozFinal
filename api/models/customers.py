@@ -13,7 +13,7 @@ class Customer(Base):
     phone = Column(String(13), nullable=False)
     address = Column(String(100), nullable=False)
 
-    payment = relationship("Payment", back_populates="customer")
+    payments = relationship("Payment", back_populates="paying_customer")
 
     reviews = relationship("Review", back_populates="customer")
 
