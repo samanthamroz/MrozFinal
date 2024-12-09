@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cd482c8-75c3-475e-9e35-ebde022dfde8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/controllers/menu_items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/controllers/order_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/order_details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/controllers/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/orders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/schemas/order_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/schemas/order_details.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,32 +34,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.customers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.menu_items.executor&quot;: &quot;Run&quot;,
-    &quot;Python.model_loader.executor&quot;: &quot;Run&quot;,
-    &quot;Python.order_details.executor&quot;: &quot;Run&quot;,
-    &quot;Python.orders.executor&quot;: &quot;Run&quot;,
-    &quot;Python.payment.executor&quot;: &quot;Run&quot;,
-    &quot;Python.promo_code.executor&quot;: &quot;Run&quot;,
-    &quot;Python.recipes.executor&quot;: &quot;Run&quot;,
-    &quot;Python.resources.executor&quot;: &quot;Run&quot;,
-    &quot;Python.review.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/saman/Desktop/MrozFinal&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.customers.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.menu_items.executor": "Run",
+    "Python.model_loader.executor": "Run",
+    "Python.order_details.executor": "Run",
+    "Python.orders.executor": "Run",
+    "Python.payment.executor": "Run",
+    "Python.promo_code.executor": "Run",
+    "Python.recipes.executor": "Run",
+    "Python.resources.executor": "Run",
+    "Python.review.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/saman/Desktop/MrozFinal/api/controllers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\saman\Desktop\MrozFinal\api\controllers" />
       <recent name="C:\Users\saman\Desktop\MrozFinal\api\models\Customers" />
       <recent name="C:\Users\saman\Desktop\MrozFinal\api\models" />
       <recent name="C:\Users\saman\Desktop\MrozFinal" />
@@ -92,7 +92,7 @@
       <workItem from="1733687721296" duration="2865000" />
       <workItem from="1733761659339" duration="26000" />
       <workItem from="1733767189979" duration="3583000" />
-      <workItem from="1733774272548" duration="8315000" />
+      <workItem from="1733774272548" duration="9482000" />
     </task>
     <servers />
   </component>
@@ -116,11 +116,11 @@
     <SUITE FILE_PATH="coverage/MrozFinal$menu_items.coverage" NAME="menu_items Coverage Results" MODIFIED="1733779375007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/models" />
     <SUITE FILE_PATH="coverage/MrozFinal$recipes.coverage" NAME="recipes Coverage Results" MODIFIED="1733687842163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$review.coverage" NAME="review Coverage Results" MODIFIED="1733687846336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
-    <SUITE FILE_PATH="coverage/MrozFinal$order_details.coverage" NAME="order_details Coverage Results" MODIFIED="1733778169016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/models" />
+    <SUITE FILE_PATH="coverage/MrozFinal$order_details.coverage" NAME="order_details Coverage Results" MODIFIED="1733783947678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$model_loader.coverage" NAME="model_loader Coverage Results" MODIFIED="1733683938972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/models" />
     <SUITE FILE_PATH="coverage/MrozFinal$orders.coverage" NAME="orders Coverage Results" MODIFIED="1733782649006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/models" />
     <SUITE FILE_PATH="coverage/MrozFinal$customers.coverage" NAME="customers Coverage Results" MODIFIED="1733687826450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
-    <SUITE FILE_PATH="coverage/MrozFinal$main.coverage" NAME="main Coverage Results" MODIFIED="1733782661789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/MrozFinal$main.coverage" NAME="main Coverage Results" MODIFIED="1733783059537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/MrozFinal$promo_code.coverage" NAME="promo_code Coverage Results" MODIFIED="1733687839601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
   </component>
 </project>

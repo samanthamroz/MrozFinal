@@ -4,7 +4,7 @@ from api.schemas.menu_items import MenuItem
 
 
 class OrderDetailBase(BaseModel):
-    menu_item: Optional[MenuItem] = None
+    menu_item: MenuItem = None
     order_id: int = None
     amount: int = None
 
