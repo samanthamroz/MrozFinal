@@ -2,45 +2,32 @@ from httpx import Response
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from api.models import reviews as model, customers as customer_model
-from api.schemas.reviews import ReviewCreate
+from api.models import resources as model
+from api.schemas.resources import ResourceCreate
 
 
-def create(db: Session, request: ReviewCreate):
-    db_customer = db.query(customer_model.Customer).filter(
-        customer_model.Customer.id == request.customer_id
-    ).first()
-
-    # If customer is not found, raise an HTTP error
-    if not db_customer:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Customer with ID {request.customer_id} not found"
-        )
-
-    new_review = model.Review(
-        item_name=request.item_name,
-        rating=request.rating,
-        review=request.review,
-        customer_id=request.customer_id
+def create(db: Session, request: ResourceCreate):
+    new_resource = model.Resource(
+        resource_name=request.resource_name,
+        amount_in_inventory=request.amount_in_inventory
     )
 
     # Add the new PromoCode to the database session
     try:
-        db.add(new_review)
+        db.add(new_resource)
         db.commit()
-        db.refresh(new_review)
+        db.refresh(new_resource)
     except SQLAlchemyError as e:
         db.rollback()
         error = str(e.__dict__["orig"])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
 
-    return new_review
+    return new_resource
 
 
 def read_all(db: Session):
     try:
-        result = db.query(model.Review).all()
+        result = db.query(model.Resource).all()
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
@@ -49,7 +36,7 @@ def read_all(db: Session):
 
 def read_one(db: Session, item_id):
     try:
-        item = db.query(model.Review).filter(model.Review.id == item_id).first()
+        item = db.query(model.Resource).filter(model.Resource.id == item_id).first()
         if not item:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
     except SQLAlchemyError as e:
@@ -60,7 +47,7 @@ def read_one(db: Session, item_id):
 
 def update(db: Session, item_id, request):
     try:
-        item = db.query(model.Review).filter(model.Review.id == item_id)
+        item = db.query(model.Resource).filter(model.Resource.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
         update_data = request.dict(exclude_unset=True)
@@ -74,7 +61,7 @@ def update(db: Session, item_id, request):
 
 def delete(db: Session, item_id):
     try:
-        item = db.query(model.Review).filter(model.Review.id == item_id)
+        item = db.query(model.Resource).filter(model.Resource.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
         item.delete(synchronize_session=False)

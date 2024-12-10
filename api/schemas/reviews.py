@@ -6,6 +6,7 @@ class ReviewBase(BaseModel):
     item_name: Optional[str] = None
     rating: int
     review: str
+    customer_id: int
 
 
 class ReviewCreate(ReviewBase):
@@ -16,6 +17,7 @@ class ReviewUpdate(BaseModel):
     item_name: Optional[str] = None
     rating: Optional[int] = None
     review: Optional[str] = None
+    customer_id: Optional[int] = None
 
 
 class Review(ReviewBase):
