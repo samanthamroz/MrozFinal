@@ -2,44 +2,34 @@ from httpx import Response
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from api.models import customers as customer_model, payments as model
-from api.schemas.payments import PaymentCreate
+from api.models import promo_codes as model, payments as payment_model
+from api.schemas.promo_codes import PromoCodeCreate
 
 
-def create(db: Session, request: PaymentCreate):
-    # Query the customer in the database
-    db_customer = db.query(customer_model.Customer).filter(
-        customer_model.Customer.id == request.paying_customer_id
-    ).first()
-
-
-    # If customer is not found, raise an HTTP error
-    if not db_customer:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Customer with ID {request.paying_customer_id} not found"
-        )
-
-    # Create a new Payment instance
-    new_payment = model.Payment(
-        card_number=request.card_number,
-        exp_month=request.exp_month,
-        exp_year=request.exp_year,
-        security_code=request.security_code,
-        name_on_card=request.name_on_card,
-        paying_customer_id=request.paying_customer_id
+def create(db: Session, request: PromoCodeCreate):
+    new_promo_code = model.PromoCode(
+        code=request.code,
+        percent_off=request.percent_off,
+        expiry_date=request.expiry_date,
+        payment_id=request.payment_id
     )
 
-    # Add the new Payment to the database session
-    db.add(new_payment)
-    db.commit()  # Commit the transaction
-    db.refresh(new_payment)  # Refresh to get the full object
+    # Add the new PromoCode to the database session
+    try:
+        db.add(new_promo_code)
+        db.commit()
+        db.refresh(new_promo_code)
+    except SQLAlchemyError as e:
+        db.rollback()
+        error = str(e.__dict__["orig"])
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
 
-    return new_payment
+    return new_promo_code
+
 
 def read_all(db: Session):
     try:
-        result = db.query(model.Payment).all()
+        result = db.query(model.PromoCode).all()
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
@@ -48,7 +38,7 @@ def read_all(db: Session):
 
 def read_one(db: Session, item_id):
     try:
-        item = db.query(model.Payment).filter(model.Payment.id == item_id).first()
+        item = db.query(model.PromoCode).filter(model.PromoCode.id == item_id).first()
         if not item:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
     except SQLAlchemyError as e:
@@ -59,7 +49,7 @@ def read_one(db: Session, item_id):
 
 def update(db: Session, item_id, request):
     try:
-        item = db.query(model.Payment).filter(model.Payment.id == item_id)
+        item = db.query(model.PromoCode).filter(model.PromoCode.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
         update_data = request.dict(exclude_unset=True)
@@ -73,7 +63,7 @@ def update(db: Session, item_id, request):
 
 def delete(db: Session, item_id):
     try:
-        item = db.query(model.Payment).filter(model.Payment.id == item_id)
+        item = db.query(model.PromoCode).filter(model.PromoCode.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Id not found!")
         item.delete(synchronize_session=False)

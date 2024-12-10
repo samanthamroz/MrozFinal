@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import datetime
 
 from api.schemas.customers import Customer
-from api.schemas.promo_code import PromoCode
+from api.schemas.promo_codes import PromoCode
 
 class PaymentBase(BaseModel):
     card_number: int
@@ -11,7 +11,7 @@ class PaymentBase(BaseModel):
     exp_year: int
     security_code: int
     name_on_card: str
-    paying_customer: Customer = None
+    paying_customer_id: int
 
 
 class PaymentCreate(PaymentBase):
@@ -24,7 +24,7 @@ class PaymentUpdate(BaseModel):
     exp_year: Optional[int] = None
     security_code: Optional[int] = None
     name_on_card: Optional[str] = None
-    paying_customer: Optional[Customer] = None
+    paying_customer_id: Optional[int] = None
 
 
 class Payment(PaymentBase):

@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cd482c8-75c3-475e-9e35-ebde022dfde8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/controllers/customers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/controllers/payments.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/routers/customers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/controllers/promo_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/routers/payments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/routers/promo_codes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/customers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/customers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/payments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/controllers/payments.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/controllers/payments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/routers/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/routers/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/schemas/customers.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/schemas/customers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/schemas/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/schemas/payment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/schemas/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/schemas/payments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/schemas/promo_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/schemas/promo_codes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,7 @@
     "Python.order_details.executor": "Run",
     "Python.orders.executor": "Run",
     "Python.payment.executor": "Run",
+    "Python.payments.executor": "Run",
     "Python.promo_code.executor": "Run",
     "Python.recipes.executor": "Run",
     "Python.resources.executor": "Run",
@@ -100,7 +100,7 @@
       <workItem from="1733761659339" duration="26000" />
       <workItem from="1733767189979" duration="3583000" />
       <workItem from="1733774272548" duration="11836000" />
-      <workItem from="1733786849202" duration="1404000" />
+      <workItem from="1733786849202" duration="5567000" />
     </task>
     <servers />
   </component>
@@ -122,8 +122,9 @@
     <SUITE FILE_PATH="coverage/MrozFinal$resources.coverage" NAME="resources Coverage Results" MODIFIED="1733687844297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$order_details.coverage" NAME="order_details Coverage Results" MODIFIED="1733783947678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$review.coverage" NAME="review Coverage Results" MODIFIED="1733687846336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
+    <SUITE FILE_PATH="coverage/MrozFinal$payments.coverage" NAME="payments Coverage Results" MODIFIED="1733790886663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/controllers" />
     <SUITE FILE_PATH="coverage/MrozFinal$index.coverage" NAME="index Coverage Results" MODIFIED="1733784337017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/routers" />
-    <SUITE FILE_PATH="coverage/MrozFinal$main.coverage" NAME="main Coverage Results" MODIFIED="1733788067586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
+    <SUITE FILE_PATH="coverage/MrozFinal$main.coverage" NAME="main Coverage Results" MODIFIED="1733795418721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api" />
     <SUITE FILE_PATH="coverage/MrozFinal$promo_code.coverage" NAME="promo_code Coverage Results" MODIFIED="1733687839601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$payment.coverage" NAME="payment Coverage Results" MODIFIED="1733687837224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/schemas" />
     <SUITE FILE_PATH="coverage/MrozFinal$menu_items.coverage" NAME="menu_items Coverage Results" MODIFIED="1733784219995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api/controllers" />
